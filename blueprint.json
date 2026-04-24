@@ -1,38 +1,44 @@
 {
-    "$schema": "https://playground.wordpress.net/blueprint-schema.json",
-    "landingPage": "/wp-admin/site-editor.php",
-    "preferredPhpVersion": "8.1",
-    "preferredWordPressVersion": "latest",
-    "steps": [
-        {
-            "step": "installTheme",
-            "themeZipFile": {
-                "resource": "github",
-                "repository": "giacomo-secchi/give-me-back-php",
-                "branch": "main"
-            }
-        },
-        {
-            "step": "installPlugin",
-            "pluginData": {
-                "resource": "wordpress.org/plugins",
-                "slug": "jetpack"
-            }
-        },
-        {
-            "step": "activatePlugin",
-            "pluginSlug": "jetpack"
-        },
-        {
-            "step": "defineWpConfigConsts",
-            "consts": {
-                "JETPACK_DEV_DEBUG": true
-            }
-        },
-        {
-            "step": "login",
-            "username": "admin",
-            "password": "password"
-        }
-    ]
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/wp-admin/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"steps": [
+		{
+      "step": "installTheme",
+      "themeZipFile": {
+        "resource": "github",
+        "repository": "giacomo-secchi/give-me-back-php",
+        "branch": "main"
+      }
+    },
+    {
+      "step": "activateTheme",
+      "themeSlug": "give-me-back-php"
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "jetpack"
+      }
+    },
+    {
+      "step": "activatePlugin",
+      "pluginSlug": "jetpack"
+    },
+    {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "JETPACK_DEV_DEBUG": true
+      }
+    },
+    {
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		}
+	]
 }
