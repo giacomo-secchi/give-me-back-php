@@ -6,33 +6,39 @@
 		"wp": "latest"
 	},
 	"steps": [
-		{
-      "step": "installTheme",
-      "themeZipFile": {
-        "resource": "github",
-        "repository": "giacomo-secchi/give-me-back-php",
-        "branch": "main"
-      }
-    },
     {
-      "step": "activateTheme",
-      "themeSlug": "give-me-back-php"
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "JETPACK_DEV_DEBUG": true,
+        "WP_DEBUG": true,
+        "WP_DEBUG_DISPLAY": false
+      }
     },
     {
       "step": "installPlugin",
       "pluginData": {
         "resource": "wordpress.org/plugins",
         "slug": "jetpack"
+      },
+      "options": {
+        "activate": true
       }
     },
     {
-      "step": "activatePlugin",
-      "pluginSlug": "jetpack"
+      "step": "runPHP",
+      "code": "<?php require_once 'wp-load.php'; Jetpack::activate_module('blocks-editable');  Jetpack::activate_module( 'custom-content-types' ); Jetpack::activate_module('shortcodes'); update_option( 'jetpack_active_modules', array( 'blocks-editable', 'custom-content-types' ) ); ?>"
     },
     {
-      "step": "defineWpConfigConsts",
-      "consts": {
-        "JETPACK_DEV_DEBUG": true
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/giacomo-secchi/give-me-back-php",
+        "ref": "main",
+        "refType": "branch",
+        "path": "/"
+      },
+      "options": {
+        "activate": true
       }
     },
     {
