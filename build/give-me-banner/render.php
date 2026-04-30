@@ -18,8 +18,8 @@ if ( is_user_logged_in() ){
 }
 
 $wrapper_attributes = get_block_wrapper_attributes( array(
-	'data-wp-interactive' => 'myPlugin',
-	'data-wp-context' => '{ "isOpen": false }'
+	'data-wp-interactive' => 'give-me-back-php',
+	'data-wp-context' => wp_json_encode( array( 'isOpen' => false ) ),
 ) );
 
 $processor = new WP_HTML_Tag_Processor(
@@ -30,6 +30,7 @@ if ( $processor->next_tag() ) {
 	$processor->set_attribute( 'data-wp-on--click', 'actions.toggle' );
 }
 $random_emoji = $processor->get_updated_html();
+
 
 
 $content = <<<HTML
@@ -45,9 +46,10 @@ $content = <<<HTML
 			<!-- /wp:button --></div>
 		<!-- /wp:buttons -->
 
-		<p id="p-1" hidden data-wp-bind--hidden="!context.isOpen">
-			<!-- wp:jetpack/sharing-button {"service":"linkedin","label":"LinkedIn"} /-->
-		</p>
+
+		<!-- wp:paragraph -->
+			<p id="p-1" hidden data-wp-bind--hidden="!context.isOpen" class="wp-block-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		<!-- /wp:paragraph -->
 
 	</div>
 HTML;

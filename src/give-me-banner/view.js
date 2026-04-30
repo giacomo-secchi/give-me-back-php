@@ -22,7 +22,7 @@
 
 import { store, getContext } from '@wordpress/interactivity';
 
-store( 'myPlugin', {
+store( 'give-me-back-php', {
     actions: {
         toggle: () => {
             const context = getContext();

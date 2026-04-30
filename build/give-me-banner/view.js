@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-(0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('myPlugin', {
+(0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('give-me-back-php', {
   actions: {
     toggle: () => {
       const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
